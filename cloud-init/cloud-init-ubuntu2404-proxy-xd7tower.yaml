@@ -1,0 +1,29 @@
+#cloud-config
+hostname: xd7tower
+create_hostname_file: true
+mounts:
+- [ swap, null ]
+users:
+- name: ubuntu
+  gecos: Ubuntu User
+  shell: /bin/bash
+  groups: users, admin
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvKaMHAmMHrRsmfz9yq6ax/M1qhjc+HZmUM0TmP1Ab5XPWrKcg944ZRT3S4tE93GDkC/KijsYgJgKWKPsBoJRyYODtwGTF2HNFSswcPaU9XRPDm2LaAgNLqt22oWCov8sERH4jVQnmCAqPpTc2z65qntYASG7xJFTgqlV/jiQ/bkLZd70olsg6c5n8gnuzcgz22sUJEF8prKM9xh5xI4fvJn5MCpjUd6m2rZcIedRS6ZJJmbwbFkQWUZUKDkYqsurczk5CaUug6owFP1LYckvHyP5YJ4s+gvh/JoHMX/Ouu6i5CLCUxa07tLbk5IG4k/n8eUeGGVOUBPNj3xaBYVcYKsy8puQOEW3SVUbstZ+Y7hQyTOn0wliCS2I6Xgwn1wkahtG+7bj+LVzZlretj4OrTKiGjaqaESdGtZzXwC43IpItPZRp7H6pE47HTMea4LJwRCfm5EdgXjCP983fnJ4j3mxGvlQPKA9xFfXe6YsEnARaAknLodvL6pR+x/h1r+s= posts@skillcadet
+package-update: true
+packages:
+  - curl
+  - gnupg2
+  - software-properties-common
+  - apt-transport-https
+  - ca-certificate
+  - privoxy
+  - nginx
+  - fail2ban
+runcmd:
+  - [ systemctl, enable, fail2ban ]
+  - [ systemctl, start, fail2ban ]
+power_state:
+  mode: reboot
+  message: First Boot Complete
