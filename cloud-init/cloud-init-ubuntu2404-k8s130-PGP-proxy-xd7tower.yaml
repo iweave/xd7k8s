@@ -1,5 +1,5 @@
 #cloud-config
-hostname: inode01
+hostname: xd7tower
 create_hostname_file: true
 mounts:
 - [ swap, null ]
