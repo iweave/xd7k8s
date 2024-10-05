@@ -22,6 +22,14 @@ This version is for:
   * Kubernetes 1.30
   * Hard coded apt PGP keys
 
+### cloud-init-ubuntu2404-k8s130-PGP-proxy-xd7inode01.yaml
+This version is for:
+  * A specific hostname
+  * Ubuntu 24.04
+  * Kubernetes 1.30
+  * Hard coded apt PGP keys
+  * Using a http proxy host to access resources
+
 ### cloud-init-ubuntu2404-k8s130-url-xd7inode01.yaml
 This version is for:
   * A specific hostname
