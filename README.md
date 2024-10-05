@@ -4,7 +4,7 @@ layout: page
 ---
 
 See related posts at [blog.skillcadet.com](https://blog.skillcadet.com)
-* [Cloud-init.yaml](https://blog.skillcadet.com/2024/10/01/cloud-init-k8s-node.html)
+* [Cloud-init.yaml for k8s node](https://blog.skillcadet.com/2024/10/01/cloud-init-k8s-node.html)
 
 ## Included files
 
