@@ -22,7 +22,7 @@ This version is for:
   * Kubernetes 1.30
   * Hard coded apt PGP keys
 
-### cloud-init-ubuntu2404-k8s130-PGP-proxy-xd7inode01.yaml
+### cloud-init-ubuntu2404-k8s130-PGP-withproxy-xd7inode01.yaml
 This version is for:
   * A specific hostname
   * Ubuntu 24.04
@@ -37,3 +37,9 @@ This version is for:
   * Kubernetes 1.30
   * Hard coded apt keyserver urls and keyids
 
+### cloud-init-ubuntu2404-proxy-xd7tower.yaml
+This version is for:
+  * A specific hostname
+  * Ubuntu 24.04
+  * Privoxy forward proxy server
+  * NGINX reverse proxy server
