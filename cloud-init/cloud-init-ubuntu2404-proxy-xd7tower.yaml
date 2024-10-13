@@ -11,6 +11,19 @@ users:
   sudo: ALL=(ALL) NOPASSWD:ALL
   ssh_authorized_keys:
     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvKaMHAmMHrRsmfz9yq6ax/M1qhjc+HZmUM0TmP1Ab5XPWrKcg944ZRT3S4tE93GDkC/KijsYgJgKWKPsBoJRyYODtwGTF2HNFSswcPaU9XRPDm2LaAgNLqt22oWCov8sERH4jVQnmCAqPpTc2z65qntYASG7xJFTgqlV/jiQ/bkLZd70olsg6c5n8gnuzcgz22sUJEF8prKM9xh5xI4fvJn5MCpjUd6m2rZcIedRS6ZJJmbwbFkQWUZUKDkYqsurczk5CaUug6owFP1LYckvHyP5YJ4s+gvh/JoHMX/Ouu6i5CLCUxa07tLbk5IG4k/n8eUeGGVOUBPNj3xaBYVcYKsy8puQOEW3SVUbstZ+Y7hQyTOn0wliCS2I6Xgwn1wkahtG+7bj+LVzZlretj4OrTKiGjaqaESdGtZzXwC43IpItPZRp7H6pE47HTMea4LJwRCfm5EdgXjCP983fnJ4j3mxGvlQPKA9xFfXe6YsEnARaAknLodvL6pR+x/h1r+s= posts@skillcadet
+write_files:
+  - path: /etc/hosts
+    append: true
+    content: |
+      10.7.222.12 xd7imaster00 imaster00 xd7control
+      10.7.222.13 xd7inode00 inode00
+      10.7.222.14 xd7inode01 inode01
+      10.7.222.11 xd7tower tower
+apt:
+  preserve_sources_list: true
+  sources:
+    certbot-ppa:
+      source: ppa:certbot/certbot
 package-update: true
 packages:
   - curl
@@ -18,8 +31,9 @@ packages:
   - software-properties-common
   - apt-transport-https
   - ca-certificate
-  - privoxy
   - nginx
+  - certbot
+  - python3-certbot-nginx
   - fail2ban
 runcmd:
   - [ systemctl, enable, fail2ban ]
