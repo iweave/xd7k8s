@@ -2,7 +2,7 @@
 hostname: inode01
 create_hostname_file: true
 mounts:
-- [ swap, null ]
+- [ swap ]
 users:
 - name: ubuntu
   gecos: Ubuntu User
@@ -14,14 +14,14 @@ users:
 write_files:
 - path: /etc/sysctl.d/kubernetes.conf
   owner: root:root
-  permissions: 0o644
+  permissions: '0644'
   content: |
     net.bridge.bridge-nf-call-ip6tables = 1
     net.bridge.bridge-nf-call-iptables = 1
     net.ipv4.ip_forward = 1
 - path: /etc/modules-load.d/k8s.conf
   owner: root:root
-  permissions: 0o644
+  permissions: '0644'
   content: |
     overlay
     br_netfilter
@@ -40,13 +40,12 @@ apt:
       source: deb https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /
       keyserer: https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.30/deb/Release.key
       keyid: 234654DA9A296436
-package-update: true
 packages:
   - curl
   - gnupg2
   - software-properties-common
   - apt-transport-https
-  - ca-certificate
+  - ca-certificates
   - containerd.io
   - kubeadm
   - kubelet
