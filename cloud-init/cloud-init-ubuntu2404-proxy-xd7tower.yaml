@@ -2,7 +2,7 @@
 hostname: xd7tower
 create_hostname_file: true
 mounts:
-- [ swap, null ]
+- [ swap ]
 users:
 - name: ubuntu
   gecos: Ubuntu User
@@ -24,13 +24,12 @@ apt:
   sources:
     certbot-ppa:
       source: ppa:certbot/certbot
-package-update: true
 packages:
   - curl
   - gnupg2
   - software-properties-common
   - apt-transport-https
-  - ca-certificate
+  - ca-certificates
   - nginx
   - certbot
   - python3-certbot-nginx
